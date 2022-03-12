@@ -1,0 +1,20 @@
+[PVE ProxMox Homelab Nodes]
+10.88.88.201  ansible_connection=ssh  ansible_user=root
+10.88.88.202  ansible_connection=ssh  ansible_user=root
+10.88.88.203  ansible_connection=ssh  ansible_user=root
+
+[pihole]
+10.88.88.8    ansible_connection=ssh  ansible_user=pi
+
+[workstations-laptops]
+10.88.88.38   ansible_connection=ssh  ansible_user=bensanchong
+10.88.88.97   ansible_connection=ssh  ansible_user=bensanchong
+
+[homelab-web]
+
+
+[homelab-app]
+
+
+[homelab-db]
+
