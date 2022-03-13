@@ -11,10 +11,12 @@
 10.88.88.97   ansible_connection=ssh  ansible_user=bensanchong
 
 [homelab-web]
-
+172.17.88.20  ansible_connection=ssh  ansible_user=root
+172.17.88.21  ansible_connection=ssh  ansible_user=root
 
 [homelab-app]
-
+172.17.88.22  ansible_connection=ssh  ansible_user=root
+172.17.88.23  ansible_connection=ssh  ansible_user=root
 
 [homelab-db]
-
+172.17.88.24  ansible_connection=ssh  ansible_user=root
