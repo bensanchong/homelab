@@ -1,4 +1,4 @@
-[PVE ProxMox Homelab Nodes]
+[PVE ProxMox]
 10.88.88.201  ansible_connection=ssh  ansible_user=root
 10.88.88.202  ansible_connection=ssh  ansible_user=root
 10.88.88.203  ansible_connection=ssh  ansible_user=root
