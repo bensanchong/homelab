@@ -59,7 +59,7 @@
      enabled: yes
     when: ansible_distribution == "CentOS"
 
-  - name: change email address for admin Debian
+  - name: change for timeout Debian
     tags: apache,Debian,httpd
     lineinfile:
       path: /etc/apache2/apache2.conf
