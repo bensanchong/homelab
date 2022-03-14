@@ -1,22 +1,20 @@
-[PVE ProxMox]
-10.88.88.201  ansible_connection=ssh  ansible_user=root
-10.88.88.202  ansible_connection=ssh  ansible_user=root
-10.88.88.203  ansible_connection=ssh  ansible_user=root
-
-[pihole]
-10.88.88.8    ansible_connection=ssh  ansible_user=pi
-
-[workstations-laptops]
-10.88.88.38   ansible_connection=ssh  ansible_user=bensanchong
-10.88.88.97   ansible_connection=ssh  ansible_user=bensanchong
-
+[proxmox]
+10.88.88.201 ansible_connection=ssh ansible_user=root
+10.88.88.202 ansible_connection=ssh ansible_user=root
+10.88.88.203 ansible_connection=ssh ansible_user=root
+[pihile]
+10.88.88.8 ansible_connection=ssh ansible_user=pi
+[containers]
+172.17.88.20 ansible_connection=ssh ansible_user=root
+172.17.88.21 ansible_connection=ssh ansible_user=root
+172.17.88.22 ansible_connection=ssh ansible_user=root
+172.17.88.23 ansible_connection=ssh ansible_user=root
+172.17.88.24 ansible_connection=ssh ansible_user=root
 [homelab-web]
-172.17.88.20  ansible_connection=ssh  ansible_user=root
-172.17.88.21  ansible_connection=ssh  ansible_user=root
-
+172.17.88.20 ansible_connection=ssh ansible_user=root
+172.17.88.21 ansible_connection=ssh ansible_user=root
 [homelab-app]
-172.17.88.22  ansible_connection=ssh  ansible_user=root
-172.17.88.23  ansible_connection=ssh  ansible_user=root
-
+172.17.88.22 ansible_connection=ssh ansible_user=root
+172.17.88.23 ansible_connection=ssh ansible_user=root
 [homelab-db]
-172.17.88.24  ansible_connection=ssh  ansible_user=root
+172.17.88.24 ansible_connection=ssh ansible_user=root
