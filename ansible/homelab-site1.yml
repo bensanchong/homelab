@@ -59,21 +59,21 @@
      enabled: yes
     when: ansible_distribution == "CentOS"
 
-  - name: change email address for admin
-    tags: apache,centos,httpd
+  - name: change email address for admin Debian
+    tags: apache,Debian,httpd
     lineinfile:
-      path: /etc/httpd/conf/httpd.conf
-      regexp: '^ServerAdmin'
-      line: ServerAdmin bensanchong@gmail.com
-    when: ansible_distribution == "CentOS"
-    register: httpd
+      path: /etc/apache2/apache2.conf
+      regexp: '^Timeout 300'
+      line: Timeout 600
+    when: ansible_distribution == "Debian"
+    register: apache2
 
-  - name: restart httpd (CentOS)
-    tags: apache,httpd,centos
+  - name: restart apache2 (Debian)
+    tags: apache2,debian
     service:
-      name: httpd
+      name: apache2
       state: restarted
-    when: httpd.changed
+    when: apache2.changed
 
   - name: copy static content to web servers
     tags: apache,apache2,httpd
