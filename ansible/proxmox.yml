@@ -1,0 +1,27 @@
+---
+
+- hosts: proxmox
+  pre_tasks:
+
+  - name: install updates (Ubuntu)
+    apt:
+      upgrade: dist
+      update_cache: yes
+    when: ansible_distribution == "Ubuntu"
+
+  - name: install updates (debian)
+    apt:
+      upgrade: dist
+      update_cache: yes
+    when: ansible_distribution == "Debian"
+
+- hosts: proxmox
+  become: true
+  tasks:
+
+  - name: fix no subscription popup
+    tags: no-sub
+    shell:
+      "sed -Ezi.bak "s/(Ext.Msg.show\(\{\s+title: gettext\('No valid sub)/void\(\{ \/\/\1/g" /usr/share/javascript/proxmox-widget-toolkit/proxmoxlib.js && systemctl restart pveproxy.service" 
+      register: shellcmd
+
