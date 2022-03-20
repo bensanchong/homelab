@@ -63,8 +63,8 @@
     tags: apache,Debian,httpd
     lineinfile:
       path: /etc/apache2/apache2.conf
-      regexp: '^Timeout 300'
-      line: Timeout 600
+      regexp: '^Timeout 600'
+      line: Timeout 300
     when: ansible_distribution == "Debian"
     register: apache2
 

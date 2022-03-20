@@ -14,9 +14,3 @@
       upgrade: dist
       update_cache: yes
     when: ansible_distribution == "Debian"
-
-- hosts: proxmox
-  tasks:
-
-  - name: Fix no Subscription popup
-      ansible.builtin.shell: sed -Ezi.bak "s/(Ext.Msg.show\(\{\s+title: gettext\('No valid sub)/void\(\{ \/\/\1/g" /usr/share/javascript/proxmox-widget-toolkit/proxmoxlib.js && systemctl restart pveproxy.service" 
