@@ -1,6 +1,6 @@
 ---
 
-- hosts: proxmox
+- hosts: ProxMox
   pre_tasks:
 
   - name: install updates (Ubuntu)

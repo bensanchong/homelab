@@ -16,12 +16,6 @@
       update_cache: yes
     when: ansible_distribution == "Ubuntu"
 
-  - name: install updates (debian)
-    apt:
-      upgrade: dist
-      update_cache: yes
-    when: ansible_distribution == "Debian"
-
 - hosts: homelab-web
   become: true
   tasks:
@@ -30,17 +24,27 @@
     package:
       name: unzip
 
+  - name: install terraform
+    unarchive:
+      src: https://releases.hashicorp.com/terraform/1.0.8/terraform_1.0.8_linux_amd64.zip
+      dest: /usr/local/bin
+      remote_src: yes
+      mode: 0755
+      owner: root
+      group: root
+
+
 - hosts: homelab-web
   tasks:
 
-  - name: install appache2 and php packages for Debian
-    tags: apache, apache2, debian
+  - name: install appache2 and php packages for Ubuntu
+    tags: apache, apache2, ubuntu
     apt:
       name:
         - apache2
         - libapache2-mod-php
       state: latest
-    when: ansible_distribution == "Debian"
+    when: ansible_distribution == "Ubuntu"
 
   - name: install apache and php for CentOS
     tags: apache,centos,httpd
@@ -59,21 +63,21 @@
      enabled: yes
     when: ansible_distribution == "CentOS"
 
-  - name: change for timeout Debian
-    tags: apache,Debian,httpd
+  - name: change email address for admin
+    tags: apache,centos,httpd
     lineinfile:
-      path: /etc/apache2/apache2.conf
-      regexp: '^Timeout 600'
-      line: Timeout 300
-    when: ansible_distribution == "Debian"
-    register: apache2
+      path: /etc/httpd/conf/httpd.conf
+      regexp: '^ServerAdmin'
+      line: ServerAdmin bensanchong@gmail.com
+    when: ansible_distribution == "CentOS"
+    register: httpd
 
-  - name: restart apache2 (Debian)
-    tags: apache2,debian
+  - name: restart httpd (CentOS)
+    tags: apache,httpd,centos
     service:
-      name: apache2
+      name: httpd
       state: restarted
-    when: apache2.changed
+    when: httpd.changed
 
   - name: copy static content to web servers
     tags: apache,apache2,httpd

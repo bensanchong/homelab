@@ -2,21 +2,35 @@
 10.88.88.201  ansible_connection=ssh  ansible_user=root
 10.88.88.202  ansible_connection=ssh  ansible_user=root
 10.88.88.203  ansible_connection=ssh  ansible_user=root
-[
-pihole]
+
+[pihole]
 10.88.88.8	ansible_connection=ssh	ansible_user=pi
 
 [workstations-laptops]
 10.88.88.38	ansible_connection=ssh	ansible_user=bensanchong
 10.88.88.97	ansible_connection=ssh	ansible_user=bensanchong
 
+[homelab-k3s-nodes]
+172.17.88.41	ansible_connection=ssh	ansible_user=bensan
+172.17.88.42	ansible_connection=ssh	ansible_user=bensan
+172.17.88.43	ansible_connection=ssh	ansible_user=bensan
+172.17.88.44	ansible_connection=ssh	ansible_user=bensan
+172.17.88.45	ansible_connection=ssh	ansible_user=bensan
+
+[homelab-k3s-ctl]
+172.17.88.41	ansible_connection=ssh	ansible_user=bensan
+172.17.88.42	ansible_connection=ssh	ansible_user=bensan
+172.17.88.43	ansible_connection=ssh	ansible_user=bensan
+
+[homelab-k3s-worker]
+172.17.88.44	ansible_connection=ssh	ansible_user=bensan
+172.17.88.45	ansible_connection=ssh	ansible_user=bensan
+
 [homelab-web]
 172.17.88.29	ansible_connection=ssh	ansible_user=root
 172.17.88.30	ansible_connection=ssh	ansible_user=root
-
 [homelab-app]
-172.17.88.31	ansible_connection=ssh	ansible_user=root
-172.17.88.32	ansible_connection=ssh	ansible_user=root
-
+172.17.88.22	ansible_connection=ssh	ansible_user=root
+172.17.88.23	ansible_connection=ssh	ansible_user=root
 [homelab-db]
-172.17.88.33	ansible_connection=ssh	ansible_user=root
+172.17.88.24	ansible_connection=ssh	ansible_user=root

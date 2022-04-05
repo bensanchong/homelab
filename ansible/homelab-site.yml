@@ -30,7 +30,7 @@
     package:
       name: unzip
 
- - hosts: homelab-web
+- hosts: homelab-web
   tasks:
 
   - name: install appache2 and php packages for Ubuntu
@@ -76,3 +76,49 @@
       owner: root
       group: root
       mode: 0644
+
+- hosts: homelab-app
+  become: true
+
+  tasks:
+    - name: Only run "update_cache=yes" if the last one is more than 3600 seconds ago
+      apt:
+        update_cache: yes
+        cache_valid_time: 3600
+
+    - name: Install JAVA related Ubuntu packages
+      apt:
+        name: "{{ packages }}"
+        state: latest
+      vars:
+        packages:
+          - openjdk-8-jdk
+          - tomcat9
+          - tomcat9-examples
+          - tomcat9-docs
+
+    - name: Make sure a service is running
+      ansible.builtin.systemd:
+        state: started
+        enabled: true
+        name: tomcat9
+
+    - name: Open Tomcat port
+      ufw:
+        state: enabled
+        rule: allow
+        port: "8080"
+        proto: tcp
+
+    - name: Open SSH port
+      ufw:
+        state: enabled
+        rule: allow
+        port: "22"
+        proto: tcp
+
+  tasks:
+    - name: Install Oracle Java on CentOS
+      roles:
+      - oracle-java
+  when: ansible_distribution == "CentOS"
