@@ -3,26 +3,13 @@
 - hosts: homelab-k3s-nodes
   pre_tasks:
 
-  - name: install updates (CentOS)
-    tags: os-updates
-    dnf:
-      update_only: yes
-      update_cache: yes
-    when: ansible_distribution == "CentOS"
-
-  - name: install updates (Ubuntu)
+    - name: install updates (Ubuntu)
     apt:
       upgrade: dist
       update_cache: yes
     when: ansible_distribution == "Ubuntu"
-
-  - name: install updates (Debian)
-    apt:
-      upgrade: dist
-      update_cache: yes
-    when: ansible_distribution == "Debian"
-
-- hosts: homelab-nodes
+ 
+- hosts: homelab-k3s-nodes
   user: root
   sudo: yes
   tasks:

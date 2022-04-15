@@ -11,20 +11,20 @@
 10.88.88.97	ansible_connection=ssh	ansible_user=bensanchong
 
 [homelab-k3s-nodes]
-172.17.88.41	ansible_connection=ssh	ansible_user=bensan
-172.17.88.42	ansible_connection=ssh	ansible_user=bensan
-172.17.88.43	ansible_connection=ssh	ansible_user=bensan
-172.17.88.44	ansible_connection=ssh	ansible_user=bensan
-172.17.88.45	ansible_connection=ssh	ansible_user=bensan
+172.17.88.48	ansible_connection=ssh	ansible_user=kadmin
+172.17.88.49	ansible_connection=ssh	ansible_user=kadmin
+172.17.88.50	ansible_connection=ssh	ansible_user=kadmin
+172.17.88.51	ansible_connection=ssh	ansible_user=kadmin
+172.17.88.52	ansible_connection=ssh	ansible_user=kadmin
 
 [homelab-k3s-ctl]
-172.17.88.41	ansible_connection=ssh	ansible_user=bensan
-172.17.88.42	ansible_connection=ssh	ansible_user=bensan
-172.17.88.43	ansible_connection=ssh	ansible_user=bensan
+172.17.88.48	ansible_connection=ssh	ansible_user=kadmin
+172.17.88.49	ansible_connection=ssh	ansible_user=kadmin
+172.17.88.50	ansible_connection=ssh	ansible_user=kadmin
 
 [homelab-k3s-worker]
-172.17.88.44	ansible_connection=ssh	ansible_user=bensan
-172.17.88.45	ansible_connection=ssh	ansible_user=bensan
+172.17.88.51	ansible_connection=ssh	ansible_user=kadmin
+172.17.88.52	ansible_connection=ssh	ansible_user=kadmin
 
 [homelab-web]
 172.17.88.29	ansible_connection=ssh	ansible_user=root
