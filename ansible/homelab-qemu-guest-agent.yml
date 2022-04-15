@@ -2,12 +2,11 @@
 
 - hosts: homelab-k3s-nodes
   pre_tasks:
-
     - name: install updates (Ubuntu)
-    apt:
+  apt:
       upgrade: dist
       update_cache: yes
-    when: ansible_distribution == "Ubuntu"
+  when: ansible_distribution == "Ubuntu"
  
 - hosts: homelab-k3s-nodes
   user: root
