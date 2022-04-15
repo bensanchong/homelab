@@ -10,11 +10,10 @@
     when: ansible_distribution == "Ubuntu"
  
 - hosts: homelab-k3s-nodes
-  #user: kadmin
-  #sudo: yes
   tasks:
 
   - name: install qemu-guest-agent
+    become: true
     package:
       name: qemu-guest-agent
 
